@@ -1,6 +1,7 @@
-import { Avatar, IconButton } from "@mui/material";
+import { Avatar, Button, IconButton } from "@mui/material";
 import ChatIcon from "@mui/icons-material/Chat";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import SearchIcon from "@mui/icons-material/Search";
 import styled from "styled-components";
 
 function SideBar() {
@@ -19,8 +20,15 @@ function SideBar() {
       </Header>
 
       {/** SearchBar */}
+      <Search>
+        <SearchIcon />
+        <SearchInput placeholder="Search in chats" />
+      </Search>
+
       {/** Start New Chat Button */}
-      {/** Chats */}
+      <SideBarButton>Start a new chat</SideBarButton>
+
+      {/** List of Chats */}
     </Container>
   );
 }
@@ -28,7 +36,30 @@ function SideBar() {
 export default SideBar;
 
 // Styled componentes
+
+const SideBarButton = styled(Button)`
+  width: 100%;
+
+  &&& {
+    border-top: 1px solid whitesmoke;
+    border-bottom: 1px solid whitesmoke;
+  }
+`;
+
+const SearchInput = styled.input`
+  outline-width: 0;
+  border: none;
+  flex: 1;
+`;
+
 const Container = styled.div``;
+
+const Search = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 2px;
+`;
 
 const Header = styled.div`
   display: flex;
@@ -43,6 +74,11 @@ const Header = styled.div`
   border-bottom: 1px solid whitesmoke;
 `;
 
-const UserAvatar = styled(Avatar)``;
+const UserAvatar = styled(Avatar)`
+  cursor: pointer;
+  :hover {
+    opacity: 0.8;
+  }
+`;
 
 const IconsContainer = styled.div``;
